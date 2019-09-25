@@ -32,6 +32,13 @@ class MyApp extends StatelessWidget {
           title: Text("Long List"),
         ),
         body: getLongList(context),
+        floatingActionButton: FloatingActionButton(
+          onPressed: (){
+            clickAction(context, "Floating Button Clicked!!!");
+          },
+          child: Icon(Icons.add),
+          tooltip: "Add item!!!",
+        ),
       ),
     );
   }
@@ -67,7 +74,7 @@ class MyApp extends StatelessWidget {
   }
 
   List<String> generateList(){
-    var items = List<String>.generate(100, (n) => "Item $n");
+    var items = List<String>.generate(10000, (n) => "Item $n");
     return items;
   }
 
@@ -78,10 +85,23 @@ class MyApp extends StatelessWidget {
         title: Text(item[index]),
         leading: Icon(Icons.list),
         onTap: (){
-          clickAction(context, 'tap on ${item[index]}');
+          showSnack(context, 'tap on ${item[index]}');
         },
       );
     });
     return list;
+  }
+
+  void showSnack(BuildContext context, String msg){
+    var sanackBar = SnackBar(
+      content: Text("Message: $msg"),
+      action: SnackBarAction(
+        label: "Undo",
+        onPressed: (){
+          clickAction(context, msg);
+        },
+      ),
+    );
+    Scaffold.of(context).showSnackBar(sanackBar);
   }
 }
