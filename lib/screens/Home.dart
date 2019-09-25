@@ -87,7 +87,7 @@ class ImageAsset extends StatelessWidget {
     );
     return Container(
       child: image,
-      margin: EdgeInsets.all(10.0),
+      margin: EdgeInsets.all(20.0),
     );
   }
 }
