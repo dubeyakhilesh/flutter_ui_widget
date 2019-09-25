@@ -29,9 +29,9 @@ class MyApp extends StatelessWidget {
       title: "UI Widget",
       home: Scaffold(
         appBar: AppBar(
-          title: Text("List"),
+          title: Text("Long List"),
         ),
-        body: getList(context),
+        body: getLongList(context),
       ),
     );
   }
@@ -43,7 +43,7 @@ class MyApp extends StatelessWidget {
           title: Text("Item"),
           leading: Icon(Icons.airline_seat_individual_suite),
           onTap: (){
-            //clickAction(context);
+           // clickAction(context, "");
           },
         ),
 
@@ -54,15 +54,34 @@ class MyApp extends StatelessWidget {
     return list;
   }
 
-  void clickAction(BuildContext context){
+  void clickAction(BuildContext context, String msg){
     var dialog = AlertDialog(
-      title: Text("Item"),
-      content: Text("Clicked by user"),
+      title: Text("Item Clicked!!!"),
+      content: Text(msg),
     );
 
     showDialog(context: context,
-    builder: (BuildContext context){
+    builder: (context){
       return dialog;
     });
+  }
+
+  List<String> generateList(){
+    var items = List<String>.generate(100, (n) => "Item $n");
+    return items;
+  }
+
+  Widget getLongList(BuildContext context){
+    var item = generateList();
+    var list = ListView.builder(itemBuilder: (context, index){
+      return ListTile(
+        title: Text(item[index]),
+        leading: Icon(Icons.list),
+        onTap: (){
+          clickAction(context, 'tap on ${item[index]}');
+        },
+      );
+    });
+    return list;
   }
 }
