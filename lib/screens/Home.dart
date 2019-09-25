@@ -26,6 +26,7 @@ class Home extends StatelessWidget {
             padding: EdgeInsets.only(top: 40.0, left: 20.0),
             child: Column(
               children: <Widget>[
+                ImageAsset(),
                 Row(
                   children: <Widget>[
                     Expanded(
@@ -74,5 +75,19 @@ class Home extends StatelessWidget {
                 )
               ],
             )));
+  }
+}
+
+class ImageAsset extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    AssetImage imageAsset = AssetImage('images/default_pic.gif');
+    Image image = Image(
+      image: imageAsset,
+    );
+    return Container(
+      child: image,
+      margin: EdgeInsets.all(10.0),
+    );
   }
 }
