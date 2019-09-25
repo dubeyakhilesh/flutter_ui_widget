@@ -11,8 +11,7 @@ import 'package:flutter/material.dart';
 * @Author: Akhilesh Dubey
 * */
 
-class Home extends StatelessWidget{
-
+class Home extends StatelessWidget {
   /*
   * Default Sateles Widget Method
   * */
@@ -28,13 +27,13 @@ class Home extends StatelessWidget{
         //margin: EdgeInsets.only(top: 20.0, bottom: 20.0),
         child: Text(
           "Container Example",
+          textDirection: TextDirection.ltr,
           style: TextStyle(
               fontSize: 20.0,
-              color: Colors.white
-          ),
+              color: Colors.white,
+              decoration: TextDecoration.none),
         ),
       ),
     );
   }
-
 }
