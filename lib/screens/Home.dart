@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 /*
@@ -19,21 +20,59 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Center(
-      child: Container(
-        color: Colors.blueAccent,
-        alignment: Alignment.center,
-        //height: 100.0,
-        //width: 300.0,
-        //margin: EdgeInsets.only(top: 20.0, bottom: 20.0),
-        child: Text(
-          "Container Example",
-          textDirection: TextDirection.ltr,
-          style: TextStyle(
-              fontSize: 20.0,
-              color: Colors.white,
-              decoration: TextDecoration.none),
-        ),
-      ),
-    );
+        child: Container(
+            color: Colors.blueAccent,
+            alignment: Alignment.center,
+            padding: EdgeInsets.only(top: 40.0, left: 20.0),
+            child: Column(
+              children: <Widget>[
+                Row(
+                  children: <Widget>[
+                    Expanded(
+                        child: Text(
+                      "Employee1",
+                      textDirection: TextDirection.ltr,
+                      style: TextStyle(
+                        fontSize: 30.0,
+                        color: Colors.white,
+                        decoration: TextDecoration.none,
+                      ),
+                    )),
+                    Expanded(
+                        child: Text(
+                      "New Delhi India, 110001",
+                      textDirection: TextDirection.ltr,
+                      style: TextStyle(
+                          decoration: TextDecoration.none,
+                          fontSize: 20.0,
+                          color: Colors.white),
+                    ))
+                  ],
+                ),
+                Row(
+                  children: <Widget>[
+                    Expanded(
+                        child: Text(
+                      "Employee2",
+                      textDirection: TextDirection.ltr,
+                      style: TextStyle(
+                          color: Colors.white,
+                          decoration: TextDecoration.none,
+                          fontSize: 30.0),
+                    )),
+                    Expanded(
+                      child: Text(
+                        "Lucknow India, 226010",
+                        textDirection: TextDirection.ltr,
+                        style: TextStyle(
+                            fontSize: 20.0,
+                            decoration: TextDecoration.none,
+                            color: Colors.white),
+                      ),
+                    )
+                  ],
+                )
+              ],
+            )));
   }
 }
