@@ -72,7 +72,8 @@ class Home extends StatelessWidget {
                       ),
                     )
                   ],
-                )
+                ),
+                FloatButton()
               ],
             )));
   }
@@ -89,5 +90,41 @@ class ImageAsset extends StatelessWidget {
       child: image,
       margin: EdgeInsets.all(20.0),
     );
+  }
+}
+
+class FloatButton extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return Container(
+      height: 50.0,
+      width: 250.0,
+      margin: EdgeInsets.only(top: 20.0),
+      child: RaisedButton(
+        color: Colors.deepOrange,
+        elevation: 6.0,
+        onPressed: () {
+          checkDetails(context);
+        },
+        child: Text(
+          "Employee Details",
+          style: TextStyle(fontSize: 20.0, color: Colors.white),
+        ),
+      ),
+    );
+  }
+
+  void checkDetails(BuildContext context) {
+    var dialog = AlertDialog(
+      title: Text("Employee Details"),
+      content: Text("Employee details are correct."),
+    );
+
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return dialog;
+        });
   }
 }
